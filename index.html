@@ -9,7 +9,19 @@
   <body>
 
     <script type="text/javascript">
-      
+
+     var canvas = d3.select("body")
+     .append("svg")
+     .attr("width", 300)
+     .attr("height", 300);
+
+     var circle = canvas.append("circle")
+     .attr("cx", 150)
+     .attr("cy", 150)
+     .attr("r", 50)
+     .attr("fill", "DeepPink");
+
+
     </script>
 
   </body>
