@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta charset="utf-8" />
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
     <title>Intro to D3</title>
   </head>
   <body>
@@ -14,22 +14,14 @@
         .attr("width", 500)
         .attr("height", 500);
 
-      var group = canvas.append("g")
-        .attr("transform", "translate(150, 150)");
-
-      var r = 100;
-      var p = Math.PI * 2;
-
-      var arc = d3.arc()
-        .innerRadius(r - 20)
-        .outerRadius(r)
-        .startAngle(0)
-        .endAngle(p);
-
-      group.append("path")
-        .attr("d", arc);
-
+      var diagonal = d3.svg.diagonal()
+        .source({x: 10, y: 10})
+        .target({x: 300, y: 300});
       
+      canvas.append("path")
+        .attr("fill", "none")
+        .attr("stroke", "black")
+        .attr("d", diagonal);
 
     </script>
 
