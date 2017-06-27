@@ -15,20 +15,19 @@
         .attr("height", 500);
 
       var group = canvas.append("g")
-        .attr("transform", "translate(100, 100)");
+        .attr("transform", "translate(150, 150)");
 
       var r = 100;
       var p = Math.PI * 2;
 
       var arc = d3.arc()
-        .innerRadius
-        .outerRadius
-        .startAngle
-        .endAngle
+        .innerRadius(r - 20)
+        .outerRadius(r)
+        .startAngle(0)
+        .endAngle(p);
 
-      group.selectAll()
-        .append("path")
-        .attr("d", arc)
+      group.append("path")
+        .attr("d", arc);
 
       
 
