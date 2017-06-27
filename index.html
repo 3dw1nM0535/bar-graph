@@ -10,12 +10,12 @@
 
     <script type="text/javascript">
     
-      var dataArray = [10, 20, 50]; //data to visualize with d3
+      var dataArray = [10, 20, 50, 600]; //data to visualize with d3
 
       var canvas = d3.select("body")
                       .append("svg")
-                      .attr("width", 300)
-                      .attr("height", 300);
+                      .attr("width", 500)
+                      .attr("height", 500);
 
       var bars = canvas.selectAll("rect")
                           .data(dataArray)
