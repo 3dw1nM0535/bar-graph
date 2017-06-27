@@ -10,9 +10,13 @@
 
     <script type="text/javascript">
     
-      var dataArray = [10, 20, 50]; //data to visualize with d3
+      var dataArray = [10, 20, 50, 60]; //data to visualize with d3
       var width = 500;
       var height = 500;
+
+      var widthScale = d3.scaleLinear()
+                                  .domain([0,600])
+                                  .range([0, width]);
 
       var canvas = d3.select("body")
                       .append("svg")
@@ -23,7 +27,7 @@
                           .data(dataArray)
                           .enter()
                               .append("rect")
-                              .attr("width", function(d) { return d * 10; })
+                              .attr("width", function(d) { return widthScale(d); })
                               .attr("height", 50)
                               .attr("y", function(d, i) { return i * 100; })
                   
