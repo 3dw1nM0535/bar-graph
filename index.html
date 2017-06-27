@@ -23,12 +23,17 @@
                       .attr("width", width)
                       .attr("height", height);
 
+      var color = d3.scaleLinear()
+                      .domain([0,600])
+                      .range(["red", "DeepPink"]);
+
       var bars = canvas.selectAll("rect")
                           .data(dataArray)
                           .enter()
                               .append("rect")
                               .attr("width", function(d) { return widthScale(d); })
                               .attr("height", 50)
+                              .attr("fill", function(d) { return color(d); })
                               .attr("y", function(d, i) { return i * 100; })
                   
     </script>
