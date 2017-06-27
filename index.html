@@ -24,6 +24,14 @@
             .attr("height", 45)
             .attr("y", function(d, i) { return i * 50; })
             .attr("fill", "ForestGreen");
+
+        canvas.selectAll("text")
+          .data(data)
+          .enter()
+            .append("text")
+            .attr("fill", "white")
+            .attr("y", function(d, i) { return i * 50 + 24; })
+            .text(function(d) { return d.name; })
       })
 
     </script>
