@@ -13,7 +13,9 @@ function render(data) {
   yScale.domain(d3.extent(data, function(d) { return d.petal_length; }));
 
   var circles = canvas.selectAll("circle").data(data);
+
   circles.enter().append("circle").attr("r", 10);
+  
   circles.attr("cx", function(d) { return xScale(d.sepal_length); }).attr("cy", function(d) { return yScale(d.petal_length); });
 
   circles.exit().remove();
