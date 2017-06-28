@@ -1,14 +1,19 @@
 {
   "name": "data-vis",
   "version": "1.0.0",
-  "description": "This repo contains source code for my data visualization tutorials.",
+  "description": "\"Bar Graph\"",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Edwin Moses",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3dw1nM0535/data-visualization.git"
+  },
+  "author": "",
   "license": "MIT",
-  "dependencies": {
-    "d3": "^4.9.1"
-  }
+  "bugs": {
+    "url": "https://github.com/3dw1nM0535/data-visualization/issues"
+  },
+  "homepage": "https://github.com/3dw1nM0535/data-visualization#readme"
 }
