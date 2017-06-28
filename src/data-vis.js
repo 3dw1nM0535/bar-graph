@@ -1,36 +1,30 @@
 var width = 500;
 var height = 500;
 
-var scale = d3.scale.linear()
-  .domain([0, 90])
-  .range([0, 500]);
-
 var canvas = d3.select("body").append("svg")
   .attr("width", width)
-  .attr("height", height);
+  .attr("height", height)
 
-function render(data, color) {
-  //Bind data
-  var rect = canvas.selectAll("rect").data(data);
+function render(data) {
+  //Binding data
+  var circles = canvas.selectAll("circle").data(data);
 
   //Enter Phase
-  rect.enter().append("rect")
-    .attr("y", 50)
-    .attr("width", 50)
-    .attr("height", 50);
+  circles.enter().append("circle").attr("r", 15);
 
   //Updata Phase
-  rect.attr("x", scale).attr("fill", color);
+  circles.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
 
-  //Exit Phase
-  rect.exit().remove();
+  circles.exit().remove();
+};
 
-}
+var objectArray = [
+  { x: 100, y: 100 },
+  { x: 130, y: 120 },
+  { x: 80, y: 180  },
+  { x: 180, y: 80  },
+  { x: 180, y: 40  }
+];
 
-setTimeout(render([10, 20, 30, 40], "ForestGreen"), 1000);
-setTimeout(render([10, 20, 30], "DeepPink"), 2000);
-setTimeout(render([10, 20], "DarkSlateGrey"), 3000);
-setTimeout(render([10, 20, 30, 40, 50, 60, 70, 80, 90, 100], "Crimson"), 4000);
-setTimeout(render([40, 50, 60], "Black"), 5000);
-
-
+render(objectArray);
