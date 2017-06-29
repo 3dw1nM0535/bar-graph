@@ -5,3 +5,10 @@
   background-color: crimson ! important;
   color: white ! important;
 }
+.bar {
+  width: 50px;
+  height: 100px;
+  display: inline-block;
+  background-color: crimson;
+  margin: 20px;
+}
