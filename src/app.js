@@ -1,21 +1,10 @@
 const w = 1000;
 const h = 700;
 
-const canvas = d3
-  .select(".container")
-  .append("svg")
-  .attr("width", w)
-  .attr("height", h);
-
 d3.json("/myData.json", function(data) {
   const dataset = data.data.map(function(d) {
     return d;
   });
-
-  const tip = d3.tip()
-    .attr("class", "tooltip")
-    .offset([-10, 0])
-    .html((d) => { return "<strong>GDP: </strong><span>$ " + d[1] + " Bilion</span><br /><strong>Time:</strong><span>" + new Date(d[0]) + "</span>"; })
 
   const xScale = d3
     .scaleLinear()
@@ -23,8 +12,14 @@ d3.json("/myData.json", function(data) {
     .domain(d3.extent(dataset, d => new Date(d[0]).getFullYear()));
   const yScale = d3
     .scaleLinear()
-    .range([0, h])
+    .range([h, 0])
     .domain(d3.extent(dataset, d => d[1]));
+
+  const canvas = d3
+    .select(".container")
+    .append("svg")
+    .attr("width", w)
+    .attr("height", h);
 
   //Bind data
   const rects = canvas.selectAll("rect").data(dataset);
