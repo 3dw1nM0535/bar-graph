@@ -21,6 +21,8 @@ function render(data, color) {
   rects
     .attr("x", scale)
     .attr("fill", color);
+
+  rect.exit().remove();
 }
 
 setTimeout( function() { render([1, 2, 2.5], "ForestGreen"); }, 1000);
