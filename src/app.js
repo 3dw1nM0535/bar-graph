@@ -1,11 +1,9 @@
 const w = 1000;
-const h = 700;
+const h = 800;
 
 d3.json("/myData.json", function(data) {
-  const dataset = data.data.map(function(d) {
-    return d;
-  });
-
+  const dataset = data.data;
+  
   const xScale = d3
     .scaleLinear()
     .range([0, w])
@@ -21,15 +19,13 @@ d3.json("/myData.json", function(data) {
     .attr("width", w)
     .attr("height", h);
 
-  //Bind data
-  const rects = canvas.selectAll("rect").data(dataset);
+  const bars = canvas.selectAll("rect").data(dataset);
 
-  //Enter
-  rects.enter().append("rect").attr("y", 0);
+  bars.enter().append("rect").attr("height", 50);
 
-  //Update
-  rects
-    .attr("x", (d, i) => i * 30)
+  bars
     .attr("width", d => xScale(d[0]))
-    .attr("height", d => yScale(d[1]));
+    .attr("height", d =>yScale(d[1]));
+
+ 
 });
