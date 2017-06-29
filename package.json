@@ -1,7 +1,7 @@
 {
-  "name": "data-vis",
+  "name": "bar-graph",
   "version": "1.0.0",
-  "description": "\"Bar Graph\"",
+  "description": "Bar graph plot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/3dw1nM0535/data-visualization.git"
   },
-  "author": "",
+  "author": "Edwin Moses",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/3dw1nM0535/data-visualization/issues"
