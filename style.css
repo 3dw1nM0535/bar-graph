@@ -5,3 +5,6 @@
   background-color: crimson ! important;
   color: white ! important;
 }
+.bar:hover {
+  background-color: forestgreen;
+}
