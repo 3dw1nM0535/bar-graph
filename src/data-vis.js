@@ -6,12 +6,14 @@ var svg = d3.select("body").append("svg")
   .attr("width", width)
   .attr("height", height)
 
+var widthScale = d3.scale.linear().domain([0, 100]).range([0, width]);
+
 var bars = svg.selectAll("rect").data(data);
 
 bars.enter().append("rect").attr("height", 50);
 
 bars
-  .attr("width", function(d) { return d * 10; })
+  .attr("width", function(d) { return widthScale(d); })
   .attr("y", function(d, i) { return i * 100; });
 
 bars.exit().remove();
