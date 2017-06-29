@@ -12,14 +12,12 @@ d3.json("/myData.json", function(data) {
   const rects = svg.selectAll("rect").data(data_Items);
   //Enter
   rects.enter().append("rect")
-    .attr("y", 0)
     .attr("width", 25)
     .attr("fill", "crimson");
 
   rects
     .attr("height", function(d) { return d * 3; })
+    .attr("y", function(d, i) { return height - (d * 3); })
     .attr("x", function(d, i) { return i * 50; });
-    
-
 
 });
