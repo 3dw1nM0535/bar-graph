@@ -6,5 +6,5 @@ var svg = d3.select("body").append("svg")
   .attr("height", height)
 
 d3.json("https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json", function(data) {
-  console.log(data);
+  console.log(data.data);
 });
