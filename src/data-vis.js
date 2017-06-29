@@ -11,7 +11,7 @@ var scale = d3.scale.linear().domain([1, 5]).range([0, 500]);
 svg.selectAll("rect")
   .data(data)
   .enter().append("rect")
-    .attr("x", function(d) { return scale(d); })
+    .attr("x", scale)
     .attr("y", 50)
     .attr("width", 50)
     .attr("height", 50);
