@@ -1,2 +1,2 @@
-const w = 1000;
-const h = 700;
+var w = 1000;
+var h = 700;
