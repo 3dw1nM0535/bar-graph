@@ -1,5 +1,5 @@
 var w = 1000;
-var h = 500;
+var h = 550;
 
 var canvas = d3.select(".container").append("svg")
   .attr("width", w)
@@ -12,9 +12,9 @@ d3.json("/myData.json", function (data) {
   d3.select(".container").append("p").text(data.description);
 
   var toolTip = d3.select(".container").append("div").attr("class", "toolTip");
-  var yScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([0, h - 50]);
-  var xAxisScale = d3.scaleLinear().domain([d3.extent(data.data, (d) => new Date(d[0]).getFullYear())]).range([0, w - 100]);
-  var yAxisScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([h - 50, 0]);
+  var yScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([0, h - 100]);
+  var xAxisScale = d3.scaleLinear().domain([d3.extent(data.data, (d) => new Date(d[0]).getFullYear())]).range([0, w - 50]);
+  var yAxisScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([h - 100, 0]);
   var colorScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range(["#ff1a1a", "#000000"]);
 
   //Binding data
@@ -22,11 +22,11 @@ d3.json("/myData.json", function (data) {
 
   //Enter
   rects.enter().append("rect")
-    .attr("width", (w - 100)/data.data.length)
+    .attr("width", (w - 50)/data.data.length)
     .attr("height", (d) => yScale(d[1]))
-    .attr("y", (d) => h - 50 - yScale(d[1]))
+    .attr("y", (d) => h - 100 - yScale(d[1]))
     .attr("fill", (d) => colorScale(d[1]))
-    .attr("x", (d, i) => i * (w - 100)/data.data.length);
+    .attr("x", (d, i) => i * (w - 50)/data.data.length);
 
   rects.on("mouseover", (d) => {
     d3.select(this).attr("fill", "white");
@@ -42,11 +42,11 @@ d3.json("/myData.json", function (data) {
   });
 
   canvas.append("g")
-    .attr("tranform", "translate(20, 25)")
+    .attr("transform", "translate(50, 50)")
     .call(d3.axisLeft(yAxisScale));
 
   canvas.append("g")
-    .attr("transform", "translate(50, "+(h - 20)+")")
+    .attr("transform", "translate(50, "+(h - 45)+")")
     .call(d3.axisBottom(xAxisScale).tickFormat(d3.format("d")));
 
 });
