@@ -15,8 +15,8 @@ svg {
 .toolTip {
   position: absolute;
   text-align: center;
-  width: 100px;
-  height: 60px;
+  width: 120px;
+  height: 70px;
   padding: 2px;
   font: 12px "Ubuntu";
   background: deeppink;
