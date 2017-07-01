@@ -1,6 +1,10 @@
 .container {
   margin-top: 2rem;
 }
+svg {
+  display: block;
+  margin: auto;
+}
 .jumbotron {
   background-color: crimson ! important;
   color: white ! important;
