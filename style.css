@@ -12,16 +12,16 @@ svg {
 .bar:hover {
   background-color: forestgreen;
 }
-#toolTip {
-  position:absolute;
-	display: none;
-	width:8em;
-	height:4em;
-	border:.2em solid black;
-	padding:.1em;
-	border-radius: 1em;
-	background-color: #F0F0F0;
-}
-toolTip p {
-  margin: 5rem;
+.toolTip {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 60px;
+  padding: 2px;
+  font: 12px "Ubuntu";
+  background: deeppink;
+  color: white;
+  border: 0px;
+  border-radius: 4px;
+  pointer-events: none;
 }
