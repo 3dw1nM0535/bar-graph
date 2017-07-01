@@ -12,7 +12,7 @@ d3.json("/myData.json", function (data) {
   d3.select(".container").append("p").text(data.description);
 
   var toolTip = d3.select(".container").append("div").attr("class", "toolTip");
-  var yScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([0, h]);
+  var yScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([0, h - 50]);
   var xAxisScale = d3.scaleLinear().domain([d3.extent(data.data, (d) => new Date(d[0]).getFullYear())]).range([0, w - 100]);
   var yAxisScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([h - 50, 0]);
   var colorScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range(["#ff1a1a", "#000000"]);
@@ -29,21 +29,20 @@ d3.json("/myData.json", function (data) {
     .attr("x", (d, i) => i * (w - 100)/data.data.length);
 
   rects.on("mouseover", (d) => {
-    d3.select(this).attr("fill", "crimson");
+    d3.select(this).attr("fill", "white");
     toolTip.html("<p>" + new Date(d[0]) +"</p>" + "<p>" + "$" + d[1] + "Billions" + "</p>")
       .style("display", "block")
       .style("left", d3.event.pageX-8+"px")
       .style("top", d3.event.pageY-80+"px")
-    console.log(d[0], d[1])
   });
 
-  rects.on("mouseout", (d) => {
+  rects.on("mouseout", (d) => { 
     d3.select(this).attr("fill", (d) => colorScale(d[1]));
     toolTip.style("display", "none");
   });
 
   canvas.append("g")
-    .attr("tranform", "translate(50, 50)")
+    .attr("tranform", "translate(20, 25)")
     .call(d3.axisLeft(yAxisScale));
 
   canvas.append("g")
