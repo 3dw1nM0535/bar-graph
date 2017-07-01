@@ -6,7 +6,6 @@ var canvas = d3.select(".container").append("svg")
   .attr("height", h);
 
 d3.json("/myData.json", function (data) {
-  console.log(data)
 
   d3.select("h4").text(data.name);
   d3.select(".container").append("p").text(data.description);
