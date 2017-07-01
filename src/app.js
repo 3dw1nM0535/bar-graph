@@ -13,7 +13,7 @@ d3.json("/myData.json", function (data) {
 
   var toolTip = d3.select(".container").append("div").attr("class", "toolTip");
   var yScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([0, h - 100]);
-  var xAxisScale = d3.scaleLinear().domain([d3.extent(data.data, (d) => new Date(d[0]).getFullYear())]).range([0, w - 50]);
+  var xAxisScale = d3.scaleLinear().domain([1947, 2015]).range([0, w]);
   var yAxisScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([h - 100, 0]);
   var colorScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range(["#ff1a1a", "#000000"]);
 
