@@ -11,7 +11,7 @@ d3.json("/myData.json", function (data) {
   d3.select("h4").text(data.name);
   d3.select(".container").append("p").text(data.description);
 
-  var toolTip = d3.select(".container").append("div").attr("class", "toolTip");
+  var toolTip = d3.select("body").append("div").attr("id", "toolTip");
   var yScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([0, h - 100]);
   var xAxisScale = d3.scaleLinear().domain([1947, 2015]).range([0, w]);
   var yAxisScale = d3.scaleLinear().domain([0, d3.max(data.data, (d) => d[1])]).range([h - 100, 0]);
