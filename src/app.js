@@ -1,5 +1,5 @@
 var w = 1000;
-var h = 550;
+var h = 500;
 
 var canvas = d3.select(".container").append("svg")
   .attr("width", w)
@@ -28,12 +28,12 @@ d3.json("/myData.json", function (data) {
     .attr("fill", (d) => colorScale(d[1]))
     .attr("x", (d, i) => i * (w - 50)/data.data.length);
 
-  rects.on("mouseover", (d) => {
-    d3.select(this).attr("fill", "white");
-    toolTip.html("<p>" + new Date(d[0]) +"</p>" + "<p>" + "$" + d[1] + "Billions" + "</p>")
-      .style("display", "block")
-      .style("left", d3.event.pageX-8+"px")
-      .style("top", d3.event.pageY-80+"px")
+  rects.on('mouseover', (d) => {
+		d3.select(this).attr('fill','#DBC9C9');
+		tooltip.html("<p>"+new Date(d[0])+"</p>"+"<p>"+"$"+d[1]+"Billion"+"</p>")
+					.style('left',d3.event.pageX-8+'px')
+					.style('top',d3.event.pageY-80+'px')
+					.style('display','block');
   });
 
   rects.on("mouseout", (d) => { 
