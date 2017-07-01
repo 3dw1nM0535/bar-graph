@@ -49,8 +49,8 @@ d3.json("/myData.json", function(data) {
       toolTip.transition()
         .duration(500)
       toolTip.html(new Date(d[0]) + "<br />" + currencyFormat(d[1])+ "Billions")
-        .style("left", (d3.event.pageX - 50) + "px")
-        .style("top", (d3.event.pageY - 30) + "px")
+        .style("left", d3.event.pageX - 50 + "px")
+        .style("top", d3.event.pageY - 30 + "px")
         .style("display", "block")
     })
     .on("mouseout", (d) => {
