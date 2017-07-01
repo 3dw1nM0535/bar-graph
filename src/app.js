@@ -34,6 +34,8 @@ d3.json("/myData.json", function(data) {
     .selectAll("rect")
     .data(data.data);
 
+  var currencyFormat = d3.format("$,.2f");
+
   //Enter
   rects
     .enter()
@@ -46,8 +48,8 @@ d3.json("/myData.json", function(data) {
     .on("mouseover", (d) => {
       toolTip.transition()
         .duration(500)
-      toolTip.html(d3.isoParse(d[0]) + "<br />" + "$" + d3.formatPrefix(",.0f", d[1]))
-        .style("left", (d3.event.pageX) + "px")
+      toolTip.html(new Date(d[0]) + "<br />" + currencyFormat(d[1])+ "Billions")
+        .style("left", (d3.event.pageX - 50) + "px")
         .style("top", (d3.event.pageY - 30) + "px")
         .style("display", "block")
     })
