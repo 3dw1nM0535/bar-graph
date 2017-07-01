@@ -25,6 +25,8 @@ d3.json("/myData.json", function(data) {
     .domain([0, d3.max(data.data, d => d[1])])
     .range(["#ff1a1a", "#000000"]);
 
+  var toolTip = d3.select(".container").append("div").attr("class", "toolTip");
+
   //Binding data
   var rects = canvas
     .append("g")
@@ -40,7 +42,18 @@ d3.json("/myData.json", function(data) {
     .attr("height", d => yScale(d[1]))
     .attr("y", d => h - 100 - yScale(d[1]))
     .attr("fill", d => colorScale(d[1]))
-    .attr("x", (d, i) => i * (w - 50) / data.data.length);
+    .attr("x", (d, i) => i * (w - 50) / data.data.length)
+    .on("mouseover", (d) => {
+      toolTip.transition()
+        .duration(500)
+      toolTip.html(d3.isoParse(d[0]) + "<br />" + "$" + d3.formatPrefix(",.0f", d[1]))
+        .style("left", (d3.event.pageX) + "px")
+        .style("top", (d3.event.pageY - 30) + "px")
+        .style("display", "block")
+    })
+    .on("mouseout", (d) => {
+      toolTip.style("display", "none")
+    })
 
   canvas
     .append("g")
