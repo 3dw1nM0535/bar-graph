@@ -8,3 +8,16 @@
 .bar:hover {
   background-color: forestgreen;
 }
+.toolTip {
+  position:absolute;
+	display: none;
+	width:8em;
+	height:4em;
+	border:.2em solid black;
+	padding:.1em;
+	border-radius: 1em;
+	background-color: #F0F0F0;
+}
+.toolTip p {
+  margin: 5rem;
+}
