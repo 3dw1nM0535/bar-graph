@@ -30,7 +30,7 @@ d3.json("/myData.json", function (data) {
 
   rects.on('mouseover', (d) => {
 		d3.select(this).attr('fill','#DBC9C9');
-		tooltip.html("<p>"+new Date(d[0])+"</p>"+"<p>"+"$"+d[1]+"Billion"+"</p>")
+		toolTip.html("<p>"+new Date(d[0])+"</p>"+"<p>"+"$"+d[1]+"Billion"+"</p>")
 					.style('left',d3.event.pageX-8+'px')
 					.style('top',d3.event.pageY-80+'px')
 					.style('display','block');
